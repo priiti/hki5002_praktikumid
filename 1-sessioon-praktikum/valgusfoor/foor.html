@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Joonis</title>
+<script type="text/javascript">
+  var seisund="punane";
+  function joonista() {
+    var g = document.getElementById("tahvel").getContext("2d");
+    g.fillStyle = "white";
+    g.fillRect(0, 0, 300, 200);
+    g.fillStyle = "black";
+    g.fillRect(70, 5, 60, 150);
+    g.lineWidth = 3;
+    g.strokeStyle = "red"; g.fillStyle="red";
+    g.beginPath();
+    g.arc(100, 35, 20, 0, 2*Math.PI, true);
+
+    if (seisund == "punane") {
+      g.fill()
+    } else {
+      g.stroke();
+    }
+
+    g.strokeStyle="yellow"; 
+    g.fillStyle="yellow";
+    g.beginPath();
+    g.arc(100, 75, 20, 0, 2 * Math.PI, true);
+      
+    if (seisund == "kollane") {
+      g.fill()
+    } else {
+      g.stroke();
+    }
+    
+    g.strokeStyle = "green";
+    g.fillStyle = "green";
+    g.beginPath();
+    g.arc(100, 115, 20, 0, 2 * Math.PI, true);
+
+    if (seisund == "roheline") {
+      g.fill()
+    } else {
+      g.stroke();
+    }
+  }
+  function punaseks() {
+    seisund = "punane";
+    joonista();
+  }
+  function kollaseks() {
+    seisund = "kollane";
+    joonista();
+  }
+  function roheliseks() {
+    seisund = "roheline";
+    joonista();
+  }
+</script>
+</head>
+<body onload="joonista();">
+  <h1>Joonis</h1>
+  <canvas id="tahvel" width="300" height="200"
+              style="background-color:yellow"></canvas><br />
+  <input type="button" value="Punaseks" onclick="punaseks()" />
+  <input type="button" value="Kollaseks" onclick="kollaseks()" />
+  <input type="button" value="Roheliseks" onclick="roheliseks()" />
+</body>
+</html>
