@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+<script type="text/javascript">
+
+   function calculate(){
+        const letihind = parseFloat(document.querySelector("#letihind").value);
+        var km = letihind * 20 / 120;
+        km = (Math.round(km * 100) / 100).toFixed(2);
+        document.querySelector("#firstAnswer").innerHTML = km;
+    }
+
+    function findSum() {
+      const amount = document.querySelector("#amount").value;
+      const currency = document.querySelector("#currency").value;
+      const comission = document.querySelector("#comission").value;
+
+      const answer = ((amount - comission) * currency).toFixed(2);
+      document.querySelector("#secondAnswer").innerHTML = answer;
+    }
+
+</script>
+<head>
+   <title>Käibemaksu arvutus</title>
+  </head>
+  <body>
+     <h1>Katsetuste leht</h1>
+      Esimene kalkulaator<br>
+        Palun sisesta letihind:
+        <input type="text" id="letihind" /><br>
+        <input type="button" value="OK" onclick="calculate();" />
+        <div id="firstAnswer">
+          Vastuse koht.
+        </div>
+        <br>
+    Teine kalkulaator<br>
+    Palun sisesta summa:
+    <input type="text" id="amount" /><br>
+    Palun sisesta kurss:
+    <input type="text" id="currency" /><br>
+    Palun sisesta komisjonitasu:
+    <input type="text" id="comission"><br>
+    <input type="button" value="Leia summa" onclick="findSum();" />
+    <div id="secondAnswer">
+          Vastuse koht.
+        </div>
+  </body>
+</html>
