@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<title>Takso</title>
+</head>
+<body>
+	<div class="col-md-4"></div>
+	<div class="col-md-offset-4">
+		<h1>Taksohinna kalkulaator</h1>
+		<img class="photo">
+		<div id="startFee"></div>
+		<div id="routeFeePerKm"></div>
+		<select id="fareSelection">
+			<option value="day">Päevane tariif</option>
+			<option value="night">Öine tariif</option>
+		</select>
+		<div>Sisesta teekonna pikkus:</div>
+		<input type="text" id="routeLength" placeholder="(km)">
+		<input type="button" value="Leia maksumus" id="findCost">
+		<div id="rideCost"></div>
+	</div>
+	<div class="col-md-4"></div>
+	<script src="js/App.js"></script>
+</body>
+</html>
