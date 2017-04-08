@@ -8,8 +8,6 @@
 document.querySelector('#drawRectangleBtn')
 	.addEventListener('click', drawRectangle);
 
-
-
 class Canvas {
 	constructor(width, height, destination) {
 		this.items = [];
@@ -75,5 +73,3 @@ function drawRectangle() {
 	myCanvas.addDrawableItem(myRectangle);
 	myCanvas.render();
 }
-
-

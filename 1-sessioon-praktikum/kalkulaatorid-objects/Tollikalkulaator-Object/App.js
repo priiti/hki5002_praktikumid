@@ -40,5 +40,3 @@ function convert() {
 			`${convertValue} sentimeetrit on ${conversionCalculator.centimetersToInches(convertValue)} tolli.`
 	}
 }
-
-

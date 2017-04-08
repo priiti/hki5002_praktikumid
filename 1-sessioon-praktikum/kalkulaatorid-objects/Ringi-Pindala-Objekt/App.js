@@ -38,7 +38,3 @@ function calculateCircleArea() {
 	document.querySelector('#circleAreaAnswer').innerHTML =
 		myCircleRadiusCalculator.circleArea;
 }
-
-
-
-

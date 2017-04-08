@@ -46,4 +46,3 @@ class App {
 		button.addEventListener('click', this.calculate.bind(this));
 	}
 }
-
