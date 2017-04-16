@@ -5,6 +5,7 @@ Kommentaarid koodile on lisatud inglisekeelsetena
 
 1. Sessioni ylesanded
 - Erinevad versioonid kalkulaatoritest
-- Ristkylik-OOP
+- Ristkylik
 - Taksokalkulaator
-- Valgusfoor-OOP
+- Valgusfoor
+- Reguleeritud ristmik canvasel (pooleli)
