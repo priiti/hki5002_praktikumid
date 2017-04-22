@@ -1,6 +1,8 @@
+// Importing modules for usage
 import Canvas from './Modules/Canvas';
 import Rectangle from './Modules/Rectangle'
 
+// Eventlistener for the btn
 window.onload = () => {
 	document.querySelector('#btn_add_elements')
 		.addEventListener('click', () => {
@@ -10,6 +12,7 @@ window.onload = () => {
 		});
 };
 
+// Class application, which uses imported modules to create objects
 class App {
 	constructor() {
 		this.canvas = new Canvas(600, 600, 'board');

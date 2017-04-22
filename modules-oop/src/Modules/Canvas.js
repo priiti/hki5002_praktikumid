@@ -1,3 +1,5 @@
+// Canvas class implementation, using it as a module
+
 export default class Canvas {
 	constructor(width, height, destination) {
 		this.items = [];

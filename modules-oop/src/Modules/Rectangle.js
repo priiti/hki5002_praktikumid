@@ -1,3 +1,5 @@
+// Rectangle class implementation, using it as a module
+
 export default class Rectangle {
 	constructor(x, y, width, height, color) {
 		this.x = x;
