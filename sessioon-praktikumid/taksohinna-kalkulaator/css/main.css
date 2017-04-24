@@ -1,0 +1,13 @@
+.photo {
+	width: 300px;
+	height: 200px;
+	
+}
+
+.day {
+	background-image: url("../img/city-cars-road-houses.jpg");
+}
+
+.night {
+	background-image: url("../img/pexels-photo-28221.jpg");	
+}
