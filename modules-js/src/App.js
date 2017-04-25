@@ -13,7 +13,7 @@ const board = new Canvas(600, 600, 'board');
 function createDrops(num) {
 	for (let i = 0; i < num; i++) {
 		const circle = 
-			new Circle(randomNumber(1, board.width), randomNumber(-20, -100), randomNumber(2, 6), 'lightblue', randomNumber(5, 10));
+			new Circle(randomNumber(1, board.width), randomNumber(-20, -200), randomNumber(2, 5), 'pink', randomNumber(5, 10));
 		board.addDrawableItems(circle);
 	}
 }
@@ -25,7 +25,7 @@ function randomNumber(start, end) {
 // const circle = new Circle(200, 200, 10, 'pink');
 // board.addDrawableItems(circle);
 
-// create Circles
+// create Circles	
 createDrops(500);
 // Animate them
 animation(board);
@@ -34,10 +34,11 @@ function animation(board) {
 	board.render();
 	//board.items[1]._radius += 1;
 	board.items.forEach((item) => {
-		item._yValue += item._speed * 0.5;
+		item._yValue += item._speed;
 		if (item._yValue > board.height) {
-			item._yValue = randomNumber(-20, -100);
+			item._yValue = randomNumber(-20, -200);
 			item._xValue = randomNumber(1, board.width);
+			item._speed = randomNumber(2, 5);
 		}
 	});
 	window.requestAnimationFrame(animation.bind(this, board));
