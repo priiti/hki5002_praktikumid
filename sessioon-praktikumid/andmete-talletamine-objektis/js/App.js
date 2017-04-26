@@ -1,4 +1,4 @@
 window.onload = () => {
-	const calculator1 = new Calculator('a', 'b', 'inputFirst');
-	const calculator2 = new Calculator('c', 'd', 'inputSecond');
+	const calculator1 = new Calculator('first');
+	const calculator2 = new Calculator('second');
 };

@@ -21,6 +21,18 @@ class DomElements {
 		return element;
 	}
 
+	static createSelectElement(id) {
+		const element = document.createElement('select');
+		element.setAttribute('id', id)
+		for (let i = 0; i < 5; i++) {
+			const option = document.createElement('option');
+			option.value = (i * 5 === 0) ? 1 : i * 5;
+			option.innerHTML = (i * 5 === 0) ? 1 : i * 5;
+			element.appendChild(option);
+		}
+		return element;
+	}
+
 	static createInputElement(id, value) {
 		const element = document.createElement('input');
 		element.setAttribute('id', id);
