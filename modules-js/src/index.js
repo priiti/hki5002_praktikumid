@@ -1,3 +1,5 @@
+// Staring point of the application
+
 import App from './modules/App';
 
 window.onload = () => {
