@@ -1,4 +1,4 @@
-export default class Canvas {
+class Canvas {
 	constructor(width, height, destination) {
 		this.items = [];
 		this.width = width;
@@ -23,3 +23,5 @@ export default class Canvas {
 		});
 	}
 }
+
+export default Canvas;

@@ -1,4 +1,4 @@
-export default `
+const header = `
 	<header>
 		<nav>
 			<h1>Canvas objects</h1>
@@ -6,3 +6,5 @@ export default `
 		</nav>
 	</header>
 `;
+
+export default header;

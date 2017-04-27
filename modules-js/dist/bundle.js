@@ -46,78 +46,109 @@
 
 	'use strict';
 
-	var _Canvas = __webpack_require__(1);
+	var _App = __webpack_require__(1);
+
+	var _App2 = _interopRequireDefault(_App);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	window.onload = function () {
+		var application = new _App2.default();
+		application.createDrops(500);
+		application.animation(application.board);
+	};
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Canvas = __webpack_require__(2);
 
 	var _Canvas2 = _interopRequireDefault(_Canvas);
 
-	var _Rectangle = __webpack_require__(2);
+	var _Rectangle = __webpack_require__(3);
 
 	var _Rectangle2 = _interopRequireDefault(_Rectangle);
 
-	var _Circle = __webpack_require__(3);
+	var _Circle = __webpack_require__(4);
 
 	var _Circle2 = _interopRequireDefault(_Circle);
 
-	var _Nav = __webpack_require__(4);
+	var _Nav = __webpack_require__(5);
 
 	var _Nav2 = _interopRequireDefault(_Nav);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	document.body.innerHTML = _Nav2.default;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var board = new _Canvas2.default(600, 600, 'board');
+	var App = function () {
+		function App() {
+			_classCallCheck(this, App);
 
-	// const rect = new Rectangle(20, 20, 40, 40, 'blue');
-	// board.addDrawableItems(rect);
-
-	function createDrops(num) {
-		for (var i = 0; i < num; i++) {
-			var color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
-			var circle = new _Circle2.default(randomNumber(1, board.width), randomNumber(-20, -200), randomNumber(2, 5), color, randomNumber(3, 7));
-			board.addDrawableItems(circle);
+			document.body.innerHTML = _Nav2.default;
+			this.board = new _Canvas2.default(600, 600, 'board');
 		}
-	}
 
-	function randomNumber(start, end) {
-		return Math.floor(Math.random() * end + start);
-	}
-
-	// const circle = new Circle(200, 200, 10, 'pink');
-	// board.addDrawableItems(circle);
-
-	// create Circles	
-	createDrops(500);
-	// Animate them
-	animation(board);
-
-	function expolode(yValue, itemRadius) {
-		if (yValue > board.height - itemRadius * 2) {
-			return true;
-		}
-		return false;
-	}
-
-	function animation(board) {
-		board.render();
-		//board.items[1]._radius += 1;
-		board.items.forEach(function (item) {
-			item._yValue += item._speed;
-			if (expolode(item._yValue, item._radius)) {
-				item._radius += 4;
+		_createClass(App, [{
+			key: 'createDrops',
+			value: function createDrops(num) {
+				for (var i = 0; i < num; i++) {
+					var color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+					var circle = new _Circle2.default(this.randomNumber(1, this.board.width), this.randomNumber(-20, -200), this.randomNumber(2, 5), color, this.randomNumber(3, 7));
+					this.board.addDrawableItems(circle);
+				}
 			}
-			if (item._yValue > board.height) {
-				item._yValue = randomNumber(-20, -200);
-				item._xValue = randomNumber(1, board.width);
-				item._speed = randomNumber(3, 7);
-				item._radius = randomNumber(2, 5);
+		}, {
+			key: 'randomNumber',
+			value: function randomNumber(start, end) {
+				return Math.floor(Math.random() * end + start);
 			}
-		});
-		window.requestAnimationFrame(animation.bind(this, board));
-	}
+		}, {
+			key: 'expolode',
+			value: function expolode(yValue, itemRadius) {
+				if (yValue > this.board.height - itemRadius * 2) {
+					return true;
+				}
+				return false;
+			}
+		}, {
+			key: 'animation',
+			value: function animation(board) {
+				var _this = this;
+
+				this.board.render();
+				this.board.items.forEach(function (item) {
+					item._yValue += item._speed;
+					if (_this.expolode(item._yValue, item._radius)) {
+						item._radius += 4;
+					}
+					if (item._yValue > _this.board.height) {
+						item._yValue = _this.randomNumber(-20, -200);
+						item._xValue = _this.randomNumber(1, _this.board.width);
+						item._speed = _this.randomNumber(3, 7);
+						item._radius = _this.randomNumber(2, 5);
+					}
+				});
+				window.requestAnimationFrame(this.animation.bind(this, this.board));
+			}
+		}]);
+
+		return App;
+	}();
+
+	exports.default = App;
 
 /***/ },
-/* 1 */
+/* 2 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -171,7 +202,7 @@
 	exports.default = Canvas;
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -215,7 +246,7 @@
 	exports.default = Rectangle;
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -277,7 +308,7 @@
 	exports.default = Circle;
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -285,7 +316,9 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = "\n\t<header>\n\t\t<nav>\n\t\t\t<h1>Canvas objects</h1>\n\t\t\t<div id=\"board\"></div>\n\t\t</nav>\n\t</header>\n";
+	var header = "\n\t<header>\n\t\t<nav>\n\t\t\t<h1>Canvas objects</h1>\n\t\t\t<div id=\"board\"></div>\n\t\t</nav>\n\t</header>\n";
+
+	exports.default = header;
 
 /***/ }
 /******/ ]);

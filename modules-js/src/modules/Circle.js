@@ -1,4 +1,4 @@
-export default class Circle {
+class Circle {
 	constructor(x, y, radius, color, speed) {
 		this._xValue = x;
 		this._yValue = y;
@@ -30,3 +30,5 @@ export default class Circle {
 		this.context.fill();
 	}
 }
+
+export default Circle;
