@@ -7,16 +7,21 @@ class Calculator {
 		document.querySelector(`#root`).appendChild(DomElements.createButtonElement(`right_btn_${destination}`, 'High'));
 		document.querySelector(`#left_btn_${destination}`).addEventListener('click', this.lowerInventoryValue.bind(this));
 		document.querySelector(`#right_btn_${destination}`).addEventListener('click', this.raiseInventoryValue.bind(this));
-
 		this._inventory = document.querySelector(`#${destination}_input`);
 		this.selection = `${destination}_select`;
+		this.canvasBoard = new Canvas(300, 50, 'root');
+		this.canvasBoard.addDrawableItems(new Rectangle(this.canvasBoard.context.canvas.height));
 	}
 	raiseInventoryValue() {
 		const newValue = parseInt(document.querySelector(`#${this.selection}`).value) + parseInt(this._inventory.value);
-		this._inventory.value = newValue;
+		this._inventory.value = newValue <= 300 ? newValue : 300;
+		this.canvasBoard.items[0].width = newValue;
+		this.canvasBoard.render();
 	}
 	lowerInventoryValue() {
 		const newValue = parseInt(this._inventory.value) - parseInt(document.querySelector(`#${this.selection}`).value);
-		this._inventory.value = newValue;
+		this._inventory.value = newValue >= 0 ? newValue : 0;
+		this.canvasBoard.items[0].width = newValue;
+		this.canvasBoard.render();
 	}
 }
