@@ -7,6 +7,7 @@ class Rectangle {
 		this.color = color;
 		this.context = undefined;
 	}
+	
 	draw(context) {
 		this.context = context;
 		if (this.context === null) {

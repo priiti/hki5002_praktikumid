@@ -8,7 +8,7 @@ class App {
 		document.body.innerHTML = header;
 		this.board = new Canvas(600, 600, 'board');
 	}
-
+	
 	createDrops(num) {
 		for (let i = 0; i < num; i++) {
 			const color = "#"+((1<<24)*Math.random()|0).toString(16);

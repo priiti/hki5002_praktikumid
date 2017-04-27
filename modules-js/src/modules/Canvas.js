@@ -11,9 +11,11 @@ class Canvas {
 		document.querySelector(`#${this.destination}`).appendChild(canvas);
 		this.context = canvas.getContext('2d');
 	}
+
 	addDrawableItems(object) {
 		this.items.push(object);
 	}
+	
 	render() {
 		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
 		this.context.fillStyle = 'black';

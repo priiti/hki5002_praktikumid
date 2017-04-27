@@ -6,15 +6,18 @@ class Circle {
 		this._color = color;
 		this._speed = speed;
 	}
+
 	set radius(radius) {
 		if (Number.isNaN(radius)) {
 			throw new Error(`Kontrolli ringi raadiust!`);
 		}
 		this._radius = radius;
 	}
+
 	set color(color) {
 		this._color = color;
 	}
+	
 	set yValue(value) {
 		this._yValue = value;
 	}
