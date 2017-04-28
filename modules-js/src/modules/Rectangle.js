@@ -1,4 +1,4 @@
-export default class Rectangle {
+class Rectangle {
 	constructor(x, y, width, height, color) {
 		this.x = x;
 		this.y = y;
@@ -7,6 +7,7 @@ export default class Rectangle {
 		this.color = color;
 		this.context = undefined;
 	}
+	
 	draw(context) {
 		this.context = context;
 		if (this.context === null) {
@@ -17,3 +18,5 @@ export default class Rectangle {
 		this.context.stroke();
 	}
 }
+
+export default Rectangle;

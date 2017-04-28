@@ -1,4 +1,4 @@
-export default class Circle {
+class Circle {
 	constructor(x, y, radius, color, speed) {
 		this._xValue = x;
 		this._yValue = y;
@@ -6,15 +6,18 @@ export default class Circle {
 		this._color = color;
 		this._speed = speed;
 	}
+
 	set radius(radius) {
 		if (Number.isNaN(radius)) {
 			throw new Error(`Kontrolli ringi raadiust!`);
 		}
 		this._radius = radius;
 	}
+
 	set color(color) {
 		this._color = color;
 	}
+	
 	set yValue(value) {
 		this._yValue = value;
 	}
@@ -30,3 +33,5 @@ export default class Circle {
 		this.context.fill();
 	}
 }
+
+export default Circle;
