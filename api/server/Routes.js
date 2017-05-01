@@ -1,15 +1,14 @@
 import express from 'express';
-
 import HomeController from './controllers/HomeController';
-import UserController from './controllers/UserController';
+import PostsController from './controllers/PostsController';
 
 const routes = express();
 
 // Get route testing
 routes.get('/', HomeController.get);
-routes.get('/users', UserController.get);
+routes.get('/posts', PostsController.getAll);
 
 // Post route testing
 // routes.post('/signup', UserController.post);
 
-export default routes;
+module.exports = routes;

@@ -1,9 +1,9 @@
-const homeController = {};
+class HomeController {
+	get(request, response) {
+		response.json({
+			message: 'Avaleht'
+		});
+	}
+}
 
-homeController.get = (request, response) => {
-	response.json({
-		message: 'See on avaleht!'
-	});
-};
-
-export default homeController;
+module.exports = new HomeController;
