@@ -103,7 +103,7 @@ var App = function () {
 	function App() {
 		_classCallCheck(this, App);
 
-		document.body.innerHTML = _Nav2.default;
+		document.querySelector('#root').innerHTML = _Nav2.default;
 		this.board = new _Canvas2.default(600, 600, 'board');
 	}
 
@@ -112,7 +112,12 @@ var App = function () {
 		value: function createDrops(num) {
 			for (var i = 0; i < num; i++) {
 				var color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
-				var circle = new _Circle2.default(this.randomNumber(1, this.board.width), this.randomNumber(-20, -200), this.randomNumber(2, 5), color, this.randomNumber(3, 7));
+				var circle = new _Circle2.default(this.randomNumber(1, this.board.width), // x
+				this.randomNumber(-20, -200), // y
+				this.randomNumber(2, 5), // radius
+				color, // color
+				this.randomNumber(3, 7) // speed
+				);
 				this.board.addDrawableItems(circle);
 			}
 		}
@@ -138,12 +143,12 @@ var App = function () {
 			this.board.items.forEach(function (item) {
 				item._yValue += item._speed;
 				if (_this.expolode(item._yValue, item._radius)) {
-					item._radius += 4;
+					item._radius += 3;
 				}
 				if (item._yValue > _this.board.height) {
 					item._yValue = _this.randomNumber(-20, -200);
 					item._xValue = _this.randomNumber(1, _this.board.width);
-					item._speed = _this.randomNumber(3, 7);
+					item._speed = _this.randomNumber(2, 4);
 					item._radius = _this.randomNumber(2, 5);
 				}
 			});
@@ -173,7 +178,7 @@ window.onload = function () {
 	var application = new _App2.default();
 	application.createDrops(500);
 	application.animation(application.board);
-}; // Staring point of the application
+}; // Starting point of the application
 
 /***/ }),
 /* 2 */

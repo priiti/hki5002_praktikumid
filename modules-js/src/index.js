@@ -1,4 +1,4 @@
-// Staring point of the application
+// Starting point of the application
 
 import App from './modules/App';
 
