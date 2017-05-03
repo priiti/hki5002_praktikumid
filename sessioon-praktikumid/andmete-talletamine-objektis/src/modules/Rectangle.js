@@ -18,3 +18,5 @@ class Rectangle {
 		this.context.fill();
 	}
 }
+
+export default Rectangle;

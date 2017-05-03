@@ -42,3 +42,5 @@ class DomElements {
 		return element;
 	}
 }
+
+export default DomElements;

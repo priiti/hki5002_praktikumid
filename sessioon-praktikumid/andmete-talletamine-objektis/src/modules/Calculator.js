@@ -1,10 +1,14 @@
+import DomElements from './DomElements';
+import Canvas from './Canvas';
+import Rectangle from './Rectangle';
+
 class Calculator {
 	constructor(destination) {
 		document.querySelector(`#root`).appendChild(DomElements.createParagraphElement('info', 'Andmete talletamine objektis'));
-		document.querySelector(`#root`).appendChild(DomElements.createButtonElement(`left_btn_${destination}`, 'Low'));
+		document.querySelector(`#root`).appendChild(DomElements.createButtonElement(`left_btn_${destination}`, 'Decrease'));
 		document.querySelector(`#root`).appendChild(DomElements.createInputElement(`${destination}_input`, 0));
 		document.querySelector(`#root`).appendChild(DomElements.createSelectElement(`${destination}_select`));
-		document.querySelector(`#root`).appendChild(DomElements.createButtonElement(`right_btn_${destination}`, 'High'));
+		document.querySelector(`#root`).appendChild(DomElements.createButtonElement(`right_btn_${destination}`, 'Increase'));
 		document.querySelector(`#root`).appendChild(DomElements.createButtonElement(`reset_btn_${destination}`, 'Reset'));
 		document.querySelector(`#left_btn_${destination}`)
 			.addEventListener('click', this.lowerInventoryValue.bind(this));
@@ -38,3 +42,5 @@ class Calculator {
 		this.canvasBoard.render();
 	}
 }
+
+export default Calculator;
