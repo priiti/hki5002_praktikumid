@@ -1,4 +1,4 @@
-class DomElements {
+class DOMElements {
 	static createDivElement(id) {
 		const div = document.createElement('div');
 		div.setAttribute('id', id);
@@ -13,4 +13,4 @@ class DomElements {
 	}
 }
 
-export default DomElements;
+export default DOMElements;

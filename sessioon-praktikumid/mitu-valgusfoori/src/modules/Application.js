@@ -1,4 +1,4 @@
-import Element from './DomElements';
+import Element from './DOMElements';
 import Canvas from './Canvas';
 import Circle from './Circle';
 import Rectangle from './Rectangle';
