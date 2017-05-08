@@ -23,6 +23,5 @@ window.onload = () => {
 			${yDistance * - 1}px ${xDistance}px 0 rgba(95, 66, 217, 0.2)
 		`;
 	}
-
 	container.addEventListener('mousemove', textShadow);
 };
