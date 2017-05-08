@@ -19,8 +19,8 @@ window.onload = () => {
 		text.style.textShadow = `
 			${xDistance}px ${yDistance}px 0 rgba(255,0,255,0.7),
 			${xDistance * - 1}px ${yDistance}px 0 rgba(0,255,255,0.7),
-			${yDistance}px ${yDistance}px 0 rgba(0, 230, 59, 0.3),
-			${yDistance * - 1}px ${yDistance}px 0 rgba(95, 66, 217, 0.2)
+			${yDistance}px ${xDistance - 1}px 0 rgba(0, 230, 59, 0.3),
+			${yDistance * - 1}px ${xDistance}px 0 rgba(95, 66, 217, 0.2)
 		`;
 	}
 
