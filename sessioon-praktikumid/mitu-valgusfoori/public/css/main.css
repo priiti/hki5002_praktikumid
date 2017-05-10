@@ -1,0 +1,17 @@
+/** {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}*/
+
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+#app {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;	
+}
