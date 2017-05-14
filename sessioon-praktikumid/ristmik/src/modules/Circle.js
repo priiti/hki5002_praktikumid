@@ -22,3 +22,5 @@ class Circle {
 		this.context.fill();
 	}
 }
+
+export default Circle;

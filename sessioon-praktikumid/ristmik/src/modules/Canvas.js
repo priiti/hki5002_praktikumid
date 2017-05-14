@@ -8,7 +8,7 @@ class Canvas {
 		canvas.height = this.height;
 		canvas.style.border = '1px solid black';
 		document.querySelector(`#${destination}`).appendChild(canvas);
-		this.context = canvas.getContext('2D');
+		this.context = canvas.getContext('2d');
 	}
 
 	addDrawableItems(object) {
@@ -16,6 +16,7 @@ class Canvas {
 	}
 
 	render() {
+		this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
 		this.items.forEach((item) => {
 			item.draw(this.context);
 		});

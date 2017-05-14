@@ -3,6 +3,7 @@ class Rectangle {
 		this.x = x;
 		this.y = y;
 		this.width = width;
+		this.height = height;
 		this.color = color;
 		this.context = undefined;
 	}
@@ -12,8 +13,10 @@ class Rectangle {
 		if (this.context === null) {
 			return;
 		}
-		this.context.fillStyle = 'pink';
+		this.context.fillStyle = this.color;
 		this.context.fillRect(this.x, this.y, this.width, this.height);
 		this.context.fill();
 	}
 }
+
+export default Rectangle;
