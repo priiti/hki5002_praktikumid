@@ -1,3 +1,4 @@
+// Rectangle takes x and y as a center coordinates of a rectangle
 class Rectangle {
 	constructor(x, y, width, height, color) {
 		this.x = x;
@@ -13,9 +14,14 @@ class Rectangle {
 		if (this.context === null) {
 			return;
 		}
+
 		this.context.fillStyle = this.color;
-		this.context.fillRect(this.x, this.y, this.width, this.height);
+		this.context.fillRect(this.x - (this.width / 2), this.y - (this.height / 2), this.width, this.height);
 		this.context.fill();
+
+		// this.context.fillStyle = this.color;
+		// this.context.fillRect(this.x, this.y, this.width, this.height);
+		// this.context.fill();
 	}
 }
 

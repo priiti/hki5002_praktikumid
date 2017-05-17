@@ -1,0 +1,4 @@
+{
+    [board.width / 2, board.height / 2, board.width / 6, board.height],
+	[board.width / 2, board.height / 2, board.width, board.height / 6]
+}
