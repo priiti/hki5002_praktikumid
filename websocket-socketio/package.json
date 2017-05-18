@@ -1,0 +1,19 @@
+{
+  "name": "websocket-socketio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Priit Parl",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "rethinkdb": "^2.3.3",
+    "socket.io": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

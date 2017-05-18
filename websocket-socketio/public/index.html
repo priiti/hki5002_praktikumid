@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Socket</title>
+</head>
+<body>
+    <div>Inimesed:</div>
+    <div id="person-list"></div>
+    <br>
+    <div>Muudetud:</div>
+    <div id="message-section"></div>
+    
+<script src="/socket.io/socket.io.js"></script>
+	<script>
+		const socket = io();
+		socket.on('person_data', (item) => {
+			showNewValues(item);
+		});
+
+        socket.on('start', (items) => {
+            console.log(items);
+            items.forEach((item) => {
+                const div = document.createElement('div');
+                div.textContent = `Nimi: ${item.name}, Vanus: ${item.age}`;
+                document.querySelector('#person-list').appendChild(div);
+            });
+        });
+
+        function showNewValues(data) {
+            document.querySelector('#message-section').innerHTML = `
+            Nimi: ${data.new_val.name} <br>
+            Vanus: ${data.new_val.age}
+            `
+        }
+	</script>
+</body>
+</html>
