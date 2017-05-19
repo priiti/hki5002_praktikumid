@@ -29,23 +29,18 @@
 
 		const socket = io();
 
-		socket.on('person_data', (item) => {
-			// showNewValues(item);
-		});
-
-        socket.on('person_data', (items) => {
-            console.log(items);
-
-            app.personData = items;
-
+        socket.on('connect', () => {
+            socket.emit()
         });
 
-        // function showNewValues(data) {
-        //     document.querySelector('#message-section').innerHTML = `
-        //     Nimi: ${data.new_val.name} <br>
-        //     Vanus: ${data.new_val.age}
-        //     `
-        // }
+        socket.on('person_data', (items) => {
+            // console.log(items);
+            app.personData = items;
+        });
+
+        socket.on('change', (item) => {
+            console.log(item);
+        });
 
 	</script>
 </body>
