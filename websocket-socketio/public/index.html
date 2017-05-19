@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue"></script>
     <title>Socket</title>
 </head>
 <body>
@@ -12,29 +13,45 @@
     <br>
     <div>Muudetud:</div>
     <div id="message-section"></div>
+
+    <div>
+        <ul id="personList">
+            <li v-for="person in personData">
+                Nimi: {{ person.name }}, vanus: {{ person.age }}
+            </li>
+        </ul>
+    </div>
     
 <script src="/socket.io/socket.io.js"></script>
 	<script>
-		const socket = io();
-		socket.on('person_data', (item) => {
-			showNewValues(item);
-		});
 
-        socket.on('start', (items) => {
-            console.log(items);
-            items.forEach((item) => {
-                const div = document.createElement('div');
-                div.textContent = `Nimi: ${item.name}, Vanus: ${item.age}`;
-                document.querySelector('#person-list').appendChild(div);
-            });
+        const app = new Vue({
+            el: '#personList',
+            data: {
+                personData: []
+            },
         });
 
-        function showNewValues(data) {
-            document.querySelector('#message-section').innerHTML = `
-            Nimi: ${data.new_val.name} <br>
-            Vanus: ${data.new_val.age}
-            `
-        }
+		const socket = io();
+
+		socket.on('person_data', (item) => {
+			// showNewValues(item);
+		});
+
+        socket.on('person_data', (items) => {
+            console.log(items);
+
+            app.personData = items;
+
+        });
+
+        // function showNewValues(data) {
+        //     document.querySelector('#message-section').innerHTML = `
+        //     Nimi: ${data.new_val.name} <br>
+        //     Vanus: ${data.new_val.age}
+        //     `
+        // }
+
 	</script>
 </body>
 </html>

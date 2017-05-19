@@ -26,7 +26,7 @@ io.sockets.on('connection', (socket) => {
                         throw error;
                     }
                     // console.log(JSON.stringify(result, null, 2));
-                    io.emit('start', result);
+                    io.emit('person_data', result);
                 })
             })
         });
