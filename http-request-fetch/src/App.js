@@ -1,5 +1,6 @@
 import Services from './Services';
 
+// Async await usage
 exports.data = async (url) => {
     const input = document.querySelector('#data-url').value;
     if (!input) {
@@ -10,8 +11,12 @@ exports.data = async (url) => {
     }
     const profileData = await Services.getData(`https://api.github.com/users/${input}`);
     const profile = await profileData.json();
+
+    // Destructuring
+    const { login, name, location, public_repos } = profile;
+    
     document.querySelector('#received-data').innerHTML = `
-        Kasutaja: ${profile.login}, Nimi: ${profile.name}, Asukoht: ${profile.location}
+        Kasutaja: ${login}, Nimi: ${name}, Asukoht: ${location}, Repos: ${public_repos}
     `;
 }
 
