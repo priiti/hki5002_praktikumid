@@ -7,6 +7,18 @@ async function getData(url) {
 	document.querySelector('#time-section').innerHTML = time;
 }
 
+async function getGreetingFromServer() {
+	const firstname = document.querySelector('#firstname');
+	const lastname = document.querySelector('#lastname');
+	const greetingData = await fetch(url, {
+		method: 'POST',
+		body: firstname
+	})
+	console.log(greetingData);
+}
+
 setInterval(() => {
     getData(url);
 }, 1000);
+
+document.querySelector('#get-greeting-btn').addEventListener('click', getGreetingFromServer, false);
