@@ -25,8 +25,15 @@ exports.data = async (url) => {
     }
 }
 
-exports.textFromServer = async () => {
-    const data = await Services.getData(`http://tigu.hk.tlu.ee/~priit.parl/programmeerimine-1-js/tekst.txt`);
-    const received = await data.json();
-    console.log(received);
+exports.textFromServer = async (url) => {
+    try {
+
+        const rawData = await Services.dataFromServer(url);
+        document.querySelector('#received-data-time').innerHTML = rawData.data;
+
+    } catch (error) {
+
+        throw Error(error);
+
+    }
 }
