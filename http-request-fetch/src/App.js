@@ -9,15 +9,20 @@ exports.data = async (url) => {
         `;
         return;
     }
-    const profileData = await Services.getData(`https://api.github.com/users/${input}`);
-    const profile = await profileData.json();
 
-    // Destructuring
-    const { login, name, location, public_repos } = profile;
-    
-    document.querySelector('#received-data').innerHTML = `
-        Kasutaja: ${login}, Nimi: ${name}, Asukoht: ${location}, Repos: ${public_repos}
-    `;
+    try {
+        const profileData = await Services.getData(`https://api.github.com/users/${input}`);
+        const profile = await profileData.json();
+
+        // Destructuring
+        const { login, name, location, public_repos } = profile;
+        
+        document.querySelector('#received-data').innerHTML = `
+            Kasutaja: ${login}, Nimi: ${name}, Asukoht: ${location}, Repos: ${public_repos}
+        `;
+    } catch (error) {
+        throw Error(error);
+    }
 }
 
 exports.textFromServer = async () => {
