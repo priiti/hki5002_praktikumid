@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        let socket;
+
+        function init() {
+            socket = io.connect();
+            socket.on('timer', (data) => {
+                document.querySelector('#timer').innerHTML = data;
+            });
+        }
+
+        function submitData() {
+            const data = document.querySelector('#input-data').value;
+            socket.emit('submit', data);
+        }
+
+    </script>
+</head>
+<body onload="init()">
+    <h1>Socket</h1>
+    <p>Timer: <span id="timer"></span></p>
+
+    <form action="#">
+        <p>Data: <input type="text" id="input-data"/>
+        <input type="button" id="submit-btn" value="Submit" onclick="submitData()"/>
+        </p>
+    </form>
+</body>
+</html>
