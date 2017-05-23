@@ -7,6 +7,9 @@ const getResource = (value) => {
         e.emit('start');
         let t = setInterval(() => {
             e.emit('data', count++);
+                if (count === 3) {
+                    e.emit('greeting', 'Hello');
+                }
             if (count === value) {
                 e.emit('end', count);
                 clearInterval(t);
@@ -17,6 +20,10 @@ const getResource = (value) => {
 };
 
 const r = getResource(5);
+
+r.on('greeting', message => {
+    console.log(`${message}, Priit!`);
+})
 
 r.on('start', () => {
     console.log('Started...');
