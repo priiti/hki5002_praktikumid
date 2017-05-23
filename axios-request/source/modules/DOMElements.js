@@ -9,3 +9,11 @@ exports.createList = (data) => {
     
     return ul;
 };
+
+exports.headerSection = () => {
+    const header = document.createElement('header');
+    const h1 = document.createElement('h1');
+    header.appendChild(h1);
+    
+    return header;
+};
